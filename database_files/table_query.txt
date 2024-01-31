@@ -1,0 +1,138 @@
+CREATE TABLE Station (
+  station_id INT PRIMARY KEY,
+  station_name VARCHAR(255),
+  location VARCHAR(255),
+  contact_number VARCHAR(20)
+);
+
+CREATE TABLE Train (
+  train_id INT PRIMARY KEY,
+  train_name VARCHAR(255)
+);
+
+CREATE TABLE Schedule (
+  schedule_id INT PRIMARY KEY,
+  train_id INT,
+  departure_time TIME,
+  arrival_time TIME,
+  FOREIGN KEY (train_id) REFERENCES Train(train_id)
+);
+
+CREATE TABLE Passenger (
+  passenger_id INT PRIMARY KEY,
+  name VARCHAR(255),
+  contact_number VARCHAR(20)
+);
+
+CREATE TABLE Maintenance (
+  maintenance_id INT PRIMARY KEY,
+  train_id INT,
+  maintenance_date DATE,
+  description VARCHAR(255),
+  FOREIGN KEY (train_id) REFERENCES Train(train_id)
+);
+
+CREATE TABLE Ticket (
+  ticket_id INT PRIMARY KEY,
+  passenger_id INT,
+  schedule_id INT,
+  seat_number VARCHAR(10),
+  ticket_price DECIMAL(10, 2),
+  journey_date DATE,
+  FOREIGN KEY (passenger_id) REFERENCES Passenger(passenger_id),
+  FOREIGN KEY (schedule_id) REFERENCES Schedule(schedule_id)
+);
+
+INSERT INTO Station (station_id, station_name, location, contact_number)
+VALUES
+  (01, 'Dhaka Central', 'Dhaka', '+8801946789543'),
+  (02, 'Chittagong', 'Chittagong', '+8801987645679'),
+  (03, 'Rajshahi', 'Rajshahi', '+8801800987654'),
+  (04, 'Khulna', 'Khulna', '+8801790087765'),
+  (05, 'Sylhet', 'Sylhet', '+8801788765543'),
+  (06, 'Barishal', 'Barishal', '+8801844456678'),
+  (07, 'Rangpur', 'Rangpur', '+8801944355566'),
+  (08, 'Comilla', 'Comilla', '+8801788643214'),
+  (09, 'Mymensingh', 'Mymensingh', '+8801587654333'),
+  (10, 'Cox\'s Bazar', 'Cox\'s Bazar', '+8801577632187');
+
+
+
+INSERT INTO Train (train_id, train_name)
+VALUES
+  (101, 'Padma Express'),
+  (102, 'Subarna Express'),
+  (103, 'Mahanagar Godhuli'),
+  (104, 'Silk City Express'),
+  (105, 'Parabat Express'),
+  (106, 'Turna Express'),
+  (107, 'Sundarban Express'),
+  (108, 'Paharika Express'),
+  (109, 'Uddyan Express'),
+  (110, 'Mohanagar Provati');
+
+
+INSERT INTO Schedule (schedule_id, train_id, departure_time, arrival_time)
+VALUES
+  (201, 101, '08:00:00', '15:30:00'),
+  (202, 102, '09:30:00', '17:45:00'),
+  (203, 103, '10:00:00', '17:30:00'),
+  (204, 104, '13:15:00', '21:45:00'),
+  (205, 105, '16:45:00', '23:15:00'),
+  (206, 106, '07:30:00', '14:45:00'),
+  (207, 107, '11:00:00', '19:30:00'),
+  (208, 108, '08:45:00', '16:00:00'),
+  (209, 109, '12:30:00', '20:15:00'),
+  (210, 110, '09:15:00', '16:30:00');
+
+
+INSERT INTO Passenger (passenger_id, name, contact_number)
+VALUES
+  (1101, 'John Doe', '+8801897665432'),
+  (1102, 'Jane Smith', '+8801600865123'),
+  (1103, 'Michael Johnson', '+8801598765431'),
+  (1104, 'Emily Davis', '+8801965432176'),
+  (1105, 'Robert Wilson', '+8801943216555'),
+  (1106, 'Sarah Khan', '+8801644432158'),
+  (1107, 'Ahmed Rahman', '+8801845342312'),
+  (1108, 'Jennifer Lee', '+8801587653423'),
+  (1109, 'David Chen', '+8801745387654'),
+  (1110, 'Laura Miller', '+8801376598764');
+
+
+INSERT INTO Ticket (ticket_id, passenger_id, schedule_id, seat_number, ticket_price, journey_date)
+VALUES
+  (1501, 1101, 201, 'A12', 1200.00, '2023-07-15'),
+  (1502, 1102, 202, 'B5', 950.00, '2023-07-16'),
+  (1503, 1103, 203, 'C7', 800.00, '2023-07-17'),
+  (1504, 1104, 204, 'D15', 1100.00, '2023-07-18'),
+  (1505, 1105, 205, 'E3', 900.00, '2023-07-19'),
+  (1506, 1106, 206, 'F8', 750.00, '2023-07-20'),
+  (1507, 1107, 207, 'G11', 1000.00, '2023-07-21'),
+  (1508, 1108, 208, 'H2', 850.00, '2023-07-22'),
+  (1509, 1109, 209, 'I19', 950.00, '2023-07-23'),
+  (1510, 1110, 210, 'J14', 1200.00, '2023-07-24');
+
+
+INSERT INTO Maintenance (maintenance_id, train_id, maintenance_date, description)
+VALUES
+  (5001, 101, '2023-07-01', 'Regular maintenance check'),
+  (5002, 102, '2023-07-02', 'Repairing air conditioning system'),
+  (5003, 103, '2023-07-03', 'Replacing broken windows'),
+  (5004, 104, '2023-07-04', 'Engine overhaul'),
+  (5005, 105, '2023-07-05', 'Cleaning and sanitation'),
+  (5006, 106, '2023-07-06', 'Electrical system inspection'),
+  (5007, 107, '2023-07-07', 'Interior refurbishment'),
+  (5008, 108, '2023-07-08', 'Brake system repair'),
+  (5009, 109, '2023-07-09', 'Wheel alignment'),
+  (5010, 110, '2023-07-10', 'Exterior painting');
+
+
+
+
+
+
+
+
+
+
