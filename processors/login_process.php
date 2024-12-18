@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contact_number = $_POST["contact_number"];
 
     // Perform input validation and error handling
-
     $sql = "SELECT * FROM Passenger WHERE name='$name' AND contact_number='$contact_number'";
     $result = $conn->query($sql);
     $userData = mysqli_fetch_assoc($result);
