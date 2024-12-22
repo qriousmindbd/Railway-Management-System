@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<p class="notify-red">Sorry! This contact number is used by another user.</p>';
         } else {
             // Update the user's information in the database
-            $update_query = "UPDATE Passenger SET name = '$new_name', contact_number = '$new_contact_number', password = $new_password WHERE contact_number = $contact_number";
+            $update_query = "UPDATE Passenger SET name = '$new_name', contact_number = '$new_contact_number' WHERE contact_number = $contact_number";
 
             $update_result = mysqli_query($conn, $update_query);
 

@@ -58,6 +58,10 @@ include_once("processors/db.php");
                 echo '<p class="notify-green">Couldn\'t cancel ticket id '.$ticket_id.'!</p>';
             }
         }
+
+        if(isset($_GET['message']) && $_GET['message'] === 'booksuccess') {
+            echo '<p class="notify-green">Ticket booked successfully! Please wait for further process.</p>';
+        }
     ?>
 
     <h2 class="make-center"> Ticket Details </h2>
@@ -76,6 +80,7 @@ include_once("processors/db.php");
         <?php if(isset($_SESSION["contact_number"])) {
             echo '<th>Status</th>';
         }?>
+        <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -93,6 +98,7 @@ include_once("processors/db.php");
             echo '<td>' . $row['seat_number'] . '</td>';
             echo '<td>' . $row['ticket_price'] . '</td>';
             echo '<td>' . $row['journey_date'] . '</td>';
+            echo '<td> <font color="green"> Booked </font> </td>';
             if(isset($_SESSION["contact_number"])) {
                 echo '<td>';
                 echo '<form action="" method="POST" id="deleteForm'.$row['ticket_id'].'">

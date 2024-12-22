@@ -38,7 +38,7 @@ if ($result) {
 
     <div class="edit-profile-container">
     <h1>Edit Profile Info</h1>
-    <form action="" method="post">
+    <form action="processors/update_profile.php" method="post">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="<?php echo $user['name']; ?>"><br><br>
 

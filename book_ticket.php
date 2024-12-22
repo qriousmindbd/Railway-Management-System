@@ -55,7 +55,7 @@ if ($result) {
                 $query = "INSERT INTO ticket (ticket_id,schedule_id, passenger_id, seat_number, ticket_price, journey_date) VALUES ($lastid, $schedule_id, $passengerId, '$seat_number', '$ticket_price', '$journey_date')";
                 
                 if (mysqli_query($conn, $query)) {
-                    echo '<p class="notify-green">Ticket booked successfully! Please wait for further process.</p>';
+                    header("Location: tickets.php?message=proupsuccess");
                 } else {
                     echo '<p class="notify-red">Error: ' . mysqli_error($conn) . '</p>';
                 }
