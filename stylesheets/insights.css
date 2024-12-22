@@ -83,14 +83,15 @@ hr {
     text-align: left;
 }
 .book-ticket-container input[type="text"],
-.book-ticket-container input[type="email"],
-.book-ticket-container input[type="tel"],
-.book-ticket-container input[type="date"],
-.book-ticket-container input[type="number"],
-.book-ticket-container input[type="text"],
-.book-ticket-container input[type="password"],
-.book-ticket-container input[type="time"],
-.book-ticket-container textarea {
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+input[type="text"],
+input[type="password"],
+input[type="time"],
+textarea,
+select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -172,6 +173,7 @@ hr {
     color: #fff;
     border: none;
     padding: 10px 20px;
+    display: inline-block;
     margin-top: 10px;
     border-radius: 5px;
     font-size: 18px;

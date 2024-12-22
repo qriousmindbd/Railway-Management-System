@@ -151,7 +151,7 @@ if (isset($_GET["schedule_id"])) {
             <textarea name="new_description"><?php echo $maintenance_data['description']; ?></textarea><br>
 
             <input type="submit" name="update" value="Update">
-        </form>
+        </form><br>
         <a class="btn5" href="maintenance.php">Go back to maintenance</a>
     <?php elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update"])): ?>
         <h1>Edit Maintenance Record</h1>
@@ -170,7 +170,8 @@ if (isset($_GET["schedule_id"])) {
             <input type="text" name="new_train_name" value="<?php echo $train_data['train_name']; ?>"><br>
 
             <input type="submit" name="trainedit" value="Update">
-        </form>
+        </form><br>
+        <a class="btn5" href="manage_train.php">Go to Manage Train</a>
     <?php elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["trainedit"])): ?>
         <h1>Edit Train Data</h1>
         <?php echo $message; ?>
@@ -194,7 +195,8 @@ if (isset($_GET["schedule_id"])) {
             <input type="text" name="new_contact_number" value="<?php echo $station_data['contact_number']; ?>"><br>
 
             <input type="submit" name="stationedit" value="Update">
-        </form>
+        </form><br>
+        <a class="btn5" href="stations.php">Go to Station List</a>
     <?php elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["stationedit"])): ?>
         <h1>Edit Station Data</h1>
         <?php echo $message; ?>

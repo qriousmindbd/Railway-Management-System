@@ -28,6 +28,11 @@ include_once("processors/db.php");
     ?>
 
     <h2 class="make-center"> Manage Train Maintenance Logs </h2>
+    <div style="text-align: center;">
+        <a href="add_maintenance.php">
+            <span class="btn4"><b>+</b> Add New Maintenance Log</span>
+        </a>
+    </div>
     <div class="info_table">
         <table class="table table-striped table-bordered">
             <thead>

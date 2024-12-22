@@ -76,7 +76,16 @@ if ($result) {
 
         <!-- Travel Details -->
         <label for="schedule_id">Schedule ID:<font color="red"><sup>*</sup></font></label>
-        <input type="text" id="schedule_id" name="schedule_id" placeholder="Enter schedule id..." required><br>
+        <select name="schedule_id" id="schedule_id">
+            <option value="">-- Select --</option>
+            <?php
+                $scheduleIds = mysqli_query($conn, "SELECT * FROM schedule INNER JOIN train ON schedule.train_id = train.train_id;");
+
+                while ($row = mysqli_fetch_assoc($scheduleIds)) {
+                    echo '<option value="'. $row['schedule_id'] .'">'. $row['schedule_id'] .' - ' . $row['train_name'] . '</option>" required>';
+                }
+            ?>
+        </select><br>
 
         <label for="phone">Seat Number:<font color="red"><sup>*</sup></font></label>
         <input type="text" id="seat_number" name="seat_number" placeholder="<?php if(isset($user['seat_number'])) echo $user['seat_number'].'" disabled'; else echo 'Enter your seat number..." required';?> ><br>
@@ -95,8 +104,8 @@ if ($result) {
         <input type="text" id="expiration_date" name="expiration_date" placeholder="MM/YY" required><br>
 
         <label for="cvv">CVV:</label>
-        <input type="text" id="cvv" name="cvv" maxlength="3" placeholder="Enter 3 digits of your CVV..." required><br>
-        -->
+        <input type="text" id="cvv" name="cvv" maxlength="3" placeholder="Enter 3 digits of your CVV..." required><br> -->
+       
 
         <!-- Submit Button -->
         <input type="submit" name="submitticket" value="Book Now">

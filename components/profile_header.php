@@ -33,5 +33,4 @@ if ($ph_result) {
         ?>
     </div>
     <hr>
-    <!-- Rest of your page content goes here -->
 </div>
